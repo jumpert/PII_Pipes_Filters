@@ -1,6 +1,8 @@
 using System.Drawing;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
+using CompAndDel.Pipes;
+using System.Collections.Generic;
 
 namespace CompAndDel
 {
@@ -51,7 +53,10 @@ namespace CompAndDel
                     }
                 }
                 image.Save(path);
+                
             }
+
         }
+        
     }
 }
