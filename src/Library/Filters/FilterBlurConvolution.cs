@@ -1,6 +1,7 @@
 using System;
 using System.Drawing;
 using CompAndDel;
+using CognitiveCoreUCU;
 
 namespace CompAndDel.Filters
 {
@@ -11,6 +12,16 @@ namespace CompAndDel.Filters
     /// </summary>
     public class FilterBlurConvolution : IFilter
     {
+        public bool IsFace
+        {
+            get 
+            {
+                CognitiveFace cog = new CognitiveFace(false);
+                cog.Recognize(@"..\..\..\PII_Pipes_Filters\src\Program\Imagenes\luke.jpg");
+                
+                return cog.FaceFound; 
+            }
+        }
         protected int[,] kernel;
         protected int complement, divider;
 

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Drawing;
-
+using CognitiveCoreUCU;
 namespace CompAndDel.Filters
 {
     /// <summary>
@@ -12,6 +12,16 @@ namespace CompAndDel.Filters
         /// </summary>
         /// <param name="image">La imagen a la cual se le va a aplicar el filtro.</param>
         /// <returns>La imagen recibida pero en negativo.</returns>
+        public bool IsFace
+        {
+            get 
+            {
+                CognitiveFace cog = new CognitiveFace(false);
+                cog.Recognize(@"..\..\..\PII_Pipes_Filters\src\Program\Imagenes\luke.jpg");
+                
+                return cog.SmileFound; 
+            }
+        }
         public IPicture Filter(IPicture image)
         {
             IPicture result = image.Clone();

@@ -54,8 +54,8 @@ namespace CompAndDel.Pipes
             p.SavePicture(picture, Direccion());
             persistencia.Add(picture);
             //envia automaticamente el tweet, cada vez que la imagen entra a PipeNull
-            var twitter = new TwitterImage();
-            Console.WriteLine(twitter.PublishToTwitter($"cambio de imagen {count} ",Direccion()));
+            //var twitter = new TwitterImage();
+            //Console.WriteLine(twitter.PublishToTwitter($"cambio de imagen {count} ",Direccion()));
             return this.nextPipe.Send(picture);
         }
         

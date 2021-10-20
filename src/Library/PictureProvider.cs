@@ -15,10 +15,14 @@ namespace CompAndDel
         /// Lee una imagen desde un archivo.
         /// </summary>
         /// <param name="path">El path del archivo desde el cual leer la imagen.</param>
-        /// <returns>La imagen leida.</returns>
+        /// <returns>La imagen leida.</returns>.
+        private string path;
+        public string Path{get;}
+        
         public IPicture GetPicture(string path)
         {
             Picture picture = new Picture(1, 1);
+            this.path = path;
             using (var image = Image.Load(path))
             {
                 picture.Resize(image.Width, image.Height);

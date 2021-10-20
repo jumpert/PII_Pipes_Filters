@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using CognitiveCoreUCU;
 
 namespace CompAndDel.Filters
 {
@@ -7,11 +8,22 @@ namespace CompAndDel.Filters
     /// </remarks>
     public class FilterGreyscale : IFilter
     {
+        public bool IsFace
+        {
+            get
+            {
+                CognitiveFace cog = new CognitiveFace(false);
+                cog.Recognize(@"..\..\..\PII_Pipes_Filters\src\Program\Imagenes\beer.jpg"); 
+                return cog.FaceFound;
+            }
+           
+        }
         /// <summary>
         /// Un filtro que retorna la imagen recibida con un filtro de escala de grises aplicado.
         /// </summary>
         /// <param name="image">La imagen a la cual se le va a aplicar el filtro.</param>
         /// <returns>La imagen recibida pero en escala de grises.</returns>
+        
         public IPicture Filter(IPicture image)
         {
             IPicture result = image.Clone();

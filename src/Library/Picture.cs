@@ -9,8 +9,10 @@ namespace CompAndDel
     /// <summary>
     /// Una implementación de <see cref="IPicture"/> mediante una matriz bidimensional de colores.
     /// </summary>
+    
     public class Picture : IPicture
     {
+        public string Path {get;}
         private Color[,] colorsMatrix;
 
         /// <summary>
@@ -111,5 +113,6 @@ namespace CompAndDel
             
             return pictureClone;
         }
+        
     }
 }
