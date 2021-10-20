@@ -43,7 +43,8 @@ namespace CompAndDel.Pipes
         
         public IPicture Send(IPicture picture)
         {
-                        
+            // Evalua el estado de filtro para ver si su prop. IsFace
+            // es true o false, si es true ejecuta filtro gris, sino el negativo
             if (filtro.IsFace)
             {
                 FilterGreyscale filtroGrises = new FilterGreyscale();
